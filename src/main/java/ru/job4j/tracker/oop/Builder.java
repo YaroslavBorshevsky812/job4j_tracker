@@ -5,5 +5,7 @@ public class Builder extends Engineer {
     private String hammer;
     private int numOfSkills;
 
-    public String buildHouse(String hammer){}
+    public String buildHouse(String hammer){
+        return null;
+    }
 }

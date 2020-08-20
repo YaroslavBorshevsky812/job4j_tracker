@@ -6,7 +6,11 @@ public class Programmer extends Engineer{
     private int numOfLaptope;
     private boolean work;
 
-    public Program code(Program program){}
+    public Program code(Program program){
+        return null;
+    }
 
-    public boolean wantSleep(boolean work){}
+    public boolean wantSleep(boolean work){
+        return work;
+    }
 }

@@ -9,18 +9,22 @@ public class Profession {
 
     public String getName(String name) {
         this.name = name;
+        return null;
     }
 
     public String getSurname(String surname) {
         this.surname = surname;
+        return null;
     }
 
     public String getEducation(String education) {
         this.education = education;
+        return null;
     }
 
     public int getBirthday(int birthday) {
         this.birthday = birthday;
+        return birthday;
     }
 
     public static void main(String[] args) {

@@ -6,5 +6,7 @@ public class Engineer extends Profession {
     private int numOfInstruments;
     private int numOfProject;
 
-    public String MakeProject (int numOfInstruments, int numOfProject){}
+    public String MakeProject (int numOfInstruments, int numOfProject){
+        return null;
+    }
 }

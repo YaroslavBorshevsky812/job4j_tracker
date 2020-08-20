@@ -5,5 +5,7 @@ public class Doctor extends Profession {
     private int numOfPatience;
     private String certification;
 
-    public boolean heal(int numOfPatience){}
+    public boolean heal(int numOfPatience){
+        return Boolean.parseBoolean(null);
+    }
 }
