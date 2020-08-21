@@ -26,7 +26,7 @@ public class Matches {
                 }
         }
         System.out.println("Игра окончена");
-        if (turn%2 != 0){
+        if (turn%2 == 0){
             System.out.println("Победил игрок два");
         } else {
             System.out.println("Победил игрок один");
