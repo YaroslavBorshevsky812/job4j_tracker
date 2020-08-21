@@ -15,13 +15,12 @@ public class Shop {
         System.out.println(indexOfNull(products));
     }
         public static int indexOfNull(Product[]products){
-            int idx = 0;
+            int idx = -1;
             for (int i = 0; i < products.length; i++) {
                 Product product = products[i];
-                if (product != null) {
-                   idx++;
-                } else {
-                    break;
+                if (products[i] == null) {
+                   idx = i;
+                   break;
                 }
             }
         return idx;
