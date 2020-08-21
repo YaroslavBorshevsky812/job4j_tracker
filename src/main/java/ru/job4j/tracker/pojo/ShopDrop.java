@@ -2,14 +2,16 @@ package ru.job4j.tracker.pojo;
 
 public class ShopDrop {
     public static Product[] leftShift(Product[] products, int index) {
-        int buf = index + 1;
-            if (buf != products.length) {
-                products[index] = products[buf];
-                products[buf] = null;
+        int idx = 0;
+        for (int i = index; i < products.length; i++) {
+            if (i != products.length - 1){
+                Product product = products[i];
+                products[i] = products[i + 1];
+                products[i + 1] = product;
             } else {
-                buf = 0;
-                products[index] = null;
+                products[i] = null;
             }
+        }
         return products;
     }
 }
