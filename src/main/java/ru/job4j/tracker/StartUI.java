@@ -31,7 +31,6 @@ public class StartUI {
                     String name = scanner.nextLine();
                     int id = Integer.valueOf(textID);
                     Item newItem = new Item();
-                    newItem.setName(name);
                     tracker.replace(id, newItem);
                     if (tracker.replace(id, newItem)) {
                         System.out.println("=== Editing is done ===");
@@ -42,7 +41,6 @@ public class StartUI {
                     System.out.println("=== Enter ID of item you want to delete ===");
                     String text = scanner.nextLine();
                     int id = Integer.valueOf(text);
-                    tracker.delete(id);
                     if (tracker.delete(id)) {
                         System.out.println("=== Item is deleted ===");
                     } else {
@@ -52,7 +50,6 @@ public class StartUI {
                     System.out.println("=== Choose the Item");
                     String text = scanner.nextLine();
                     int id = Integer.valueOf(text);
-                    tracker.findById(id);
                     Item item = tracker.findById(id);
                     if (item != null) {
                         System.out.println(item);
