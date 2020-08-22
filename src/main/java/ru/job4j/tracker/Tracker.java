@@ -48,13 +48,12 @@ public class Tracker {
 
     public boolean replace(int id, Item item) {
         boolean done = false;
-        for (int i = 0; i < this.size; i++) {
-            if (i == indexOf(id)){
-                items[i] = item;
+        int index = indexOf(id);
+            if (index != -1) {
+                item.setId(id);
+                items[index] = item;
                 done = true;
-                break;
             }
-        }
         return done;
     }
 }
