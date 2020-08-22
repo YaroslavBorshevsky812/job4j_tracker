@@ -12,7 +12,7 @@ public class Matches {
             Scanner inpit = new Scanner(System.in);
             String take = inpit.nextLine();
             int num = Integer.valueOf(take);
-                if (num <= 3) {
+                if (num <= 3 && num > 0) {
                     matches = matches - num;
                     turn++;
                     System.out.println("осталось " + matches + " спичек");
