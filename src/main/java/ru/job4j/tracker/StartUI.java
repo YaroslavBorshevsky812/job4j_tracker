@@ -28,10 +28,10 @@ public class StartUI {
                     System.out.println("=== Enter ID of Item ===");
                     String textID = scanner.nextLine();
                     System.out.println("=== Enter new name ===");
-                    String name = scanner.nextLine();
-                    int id = Integer.valueOf(textID);
                     Item newItem = new Item();
-                    tracker.replace(id, newItem);
+                    String name = scanner.nextLine();
+                    newItem.setName(name);
+                    int id = Integer.valueOf(textID);
                     if (tracker.replace(id, newItem)) {
                         System.out.println("=== Editing is done ===");
                     } else {
