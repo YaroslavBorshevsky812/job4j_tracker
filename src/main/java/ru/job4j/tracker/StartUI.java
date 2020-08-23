@@ -13,7 +13,7 @@ public class StartUI {
             this.showMenu();
             int select = Integer.valueOf(input.askStr("Select: "));
             if (select == 0) {
-                createItem(input, tracker);
+                StartUI.createItem(input, tracker);
             } else if (select == 1) {
                 Item items[] = tracker.findAll();
                 for (int i = 0; i < items.length; i++) {
@@ -22,18 +22,18 @@ public class StartUI {
                 }
 
             } else if (select == 2) {
-                replaceItem(input, tracker);
+                StartUI.replaceItem(input, tracker);
             } else {
                 System.out.println("=== Error ===");
             }
 
-            if (select == 3) {
-                deleteItem(input, tracker);
+            else if (select == 3) {
+                StartUI.deleteItem(input, tracker);
             } else {
                 System.out.println("=== Error ===");
             }
 
-            if (select == 4) {
+           else if (select == 4) {
                 String text = input.askStr("=== Choose the Item");
                 int id = Integer.valueOf(text);
                 Item item = tracker.findById(id);
