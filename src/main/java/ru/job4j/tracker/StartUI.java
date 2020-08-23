@@ -15,43 +15,20 @@ public class StartUI {
 
             if (select == 0) {
                 StartUI.createItem(input, tracker);
-            }
-
-            else if (select == 1) {
+            } else if (select == 1) {
                 StartUI.showItem(input, tracker);
-            }
-
-            else if (select == 2) {
+            } else if (select == 2) {
                 StartUI.replaceItem(input, tracker);
-            } else {
-                System.out.println("=== Error ===");
-            }
-
-            else if (select == 3) {
+            } else if (select == 3) {
                 StartUI.deleteItem(input, tracker);
-            } else {
-                System.out.println("=== Error ===");
-            }
-
-            else if (select == 4) {
+            } else if (select == 4) {
                 StartUI.byIdItem(input, tracker);
-            } else {
-                System.out.println("=== Not Founded ===");
-            }
-
-
-            else if (select == 5) {
+            } else if (select == 5) {
                 StartUI.byNameItem(input, tracker);
-            } else {
-                System.out.println("=== There is no such a name ===");
-            }
-
-            else if (select == 6) {
+            } else if (select == 6) {
                 run = false;
             }
         }
-
-
     }
 
     private void showMenu() {
@@ -88,6 +65,8 @@ public class StartUI {
             int id = Integer.valueOf(textID);
             if (tracker.replace(id, newItem)) {
                 System.out.println("=== Editing is done ===");
+            }else {
+                System.out.println("=== Error ===");
             }
         }
 
@@ -96,6 +75,8 @@ public class StartUI {
                 int id = Integer.valueOf(text);
                 if (tracker.delete(id)) {
                     System.out.println("=== Item is deleted ===");
+                }else {
+                    System.out.println("=== Error ===");
                 }
             }
 
@@ -103,7 +84,13 @@ public class StartUI {
                 String text = input.askStr("=== Choose the Item");
                 int id = Integer.valueOf(text);
                 Item item = tracker.findById(id);
+                if (item != null) {
+                    System.out.println(item);
+                } else {
+                    System.out.println("=== Not Founded ===");
+                }
             }
+
             public static void byNameItem(Input input, Tracker tracker) {
                 String name = input.askStr("=== Enter the name ===");
                 Item[] item = tracker.findByName(name);
@@ -112,6 +99,8 @@ public class StartUI {
                         Item item1 = item[i];
                         System.out.println(item);
                     }
+                }else {
+                    System.out.println("=== There is no such a name ===");
                 }
             }
 
