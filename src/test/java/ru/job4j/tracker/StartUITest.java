@@ -47,24 +47,23 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Deleted item"));
         Input in = new StubInput(
-                new String[] {"0","Deleted item", "1"}
+                new String[] {"0","1"}
         );
         UserAction[] actions = {
                 new DeleteAction(),
                 new Exit()
         };
         new StartUI().init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()), is(nullValue()));
+        Item nullValue = null;
+        assertThat(tracker.findById(item.getId()), is(nullValue)); //тут сомнения.
     }
     @Test
     public void whenReplaceItem() {
         Tracker tracker = new Tracker();
-        /* Добавим в tracker новую заявку */
         Item item = tracker.add(new Item("Replaced item"));
-        /* Входные данные должны содержать ID добавленной заявки item.getId() */
         String replacedName = "New item name";
         Input in = new StubInput(
-                new String[] {"0","Replaced item", "1"}
+                new String[] {"0", "Replaced item", "1"}
         );
         UserAction[] actions = {
                 new ReplaceAction(),
