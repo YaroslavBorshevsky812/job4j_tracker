@@ -1,6 +1,12 @@
 package ru.job4j.tracker;
 
 public class FindByNameAction implements UserAction {
+    private final Output out;
+
+    public FindByNameAction(Output out) {
+        this.out = out;
+    }
+
     @Override
     public String name() {
         return "=== Find by Name ===";
@@ -12,10 +18,10 @@ public class FindByNameAction implements UserAction {
         if (item.length > 0) {
             for (int i = 0; i < item.length; i++) {
                 Item item1 = item[i];
-                System.out.println(item);
+                out.println(item);
             }
         }else {
-            System.out.println("=== There is no such a name ===");
+            out.println("=== There is no such a name ===");
         }
         return true;
     }
