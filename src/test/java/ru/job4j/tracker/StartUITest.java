@@ -25,15 +25,20 @@ public class StartUITest {
     public void whenCreate() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[]{"0"}
+                new String[]{"0", "Ярослав", "1"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction(out)
+                new CreateAction(out),
+                new Exit()
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is("Menu." + System.lineSeparator() +
-                "0. === Create a new Item ====" + System.lineSeparator() + "Enter name: " + System.lineSeparator()
+                "0. Create" + System.lineSeparator() + "1. === Exit ===" + System.lineSeparator() +
+                "=== Create a new Item ====" +
+                System.lineSeparator() + "Menu." + System.lineSeparator() +
+                "0. Create" + System.lineSeparator() +
+                "1. === Exit ===" + System.lineSeparator()
         ));
     }
 }
