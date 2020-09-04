@@ -9,7 +9,7 @@ public class StartUITest {
     public void whenExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0"}
+                new String[]{"0"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
@@ -17,14 +17,15 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is("Menu." + System.lineSeparator() +
-                        "0. === Exit ===" + System.lineSeparator()
+                "0. === Exit ===" + System.lineSeparator()
         ));
     }
+
     @Test
     public void whenCreate() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0"}
+                new String[]{"0"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
@@ -32,7 +33,7 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is("Menu." + System.lineSeparator() +
-                "0. === Create a new Item ====" + System.lineSeparator()
+                "0. === Create a new Item ====" + System.lineSeparator() + "Enter name: " + System.lineSeparator()
         ));
     }
 }
