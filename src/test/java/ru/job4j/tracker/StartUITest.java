@@ -56,8 +56,8 @@ public class StartUITest {
                 "=== There is no such a name ===" +  System.lineSeparator()
 
         ));
-
     }
+
     @Test
     public void whenFindByIdAction() {
         Output out = new StubOutput();
@@ -74,9 +74,7 @@ public class StartUITest {
                 "0. === Find by ID ===" + System.lineSeparator() +
                 "1. === Exit ===" + System.lineSeparator() +
                 "=== Not Founded ===" +  System.lineSeparator()
-
         ));
-
     }
 }
 
