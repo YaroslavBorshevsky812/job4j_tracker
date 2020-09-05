@@ -2,7 +2,6 @@ package ru.job4j.tracker.ex;
 
 public class Factorial {
     public static void main(String[] args) {
-
     }
 
     public int calc(int n) {
@@ -15,4 +14,5 @@ public class Factorial {
         }
         return rsl;
     }
+
 }
