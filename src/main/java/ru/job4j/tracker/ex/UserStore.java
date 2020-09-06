@@ -5,27 +5,21 @@ public class UserStore {
     public static User findUser(User[] users, String login) throws UserNotFoundException {
         User some = new User("", true);
         for (User user: users) {
-            try {
+            if(user == null){
+                throw new UserNotFoundException("User is not founded");
+            }
                 if (user.getUsername().contains(login)) {
                     some = user;
                 }
-            } catch  (UserNotFoundException e){
-                e.printStackTrace();
-            }
         }
         return some;
     }
 
     public static boolean validate(User user) throws UserInvalidException {
-        boolean valid = true;
-       try {
            if (!(user.isValid()) || user.getUsername().length() < 3) {
-               valid = false;
+               throw new UserInvalidException("User is invalid");
            }
-       } catch (UserInvalidException e){
-           e.printStackTrace();
-       }
-        return valid;
+        return true;
     }
 
     public static void main(String[] args) {

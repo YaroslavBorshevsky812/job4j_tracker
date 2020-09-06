@@ -3,14 +3,13 @@ package ru.job4j.tracker.ex;
 public class ElementNotFoundException extends Exception {
     public static int indexOf(String[] value, String key) throws ElementNotFoundException {
         int rsl = -1;
-        for (String num : value) {
-            rsl++;
-            if(num == null){
-                throw new  ElementNotFoundException();
+        for (int i = 0; i < value.length; i++) {
+            if (value[i].equals(key)) {
+                rsl = i;
             }
-            if (num.equals(key)) {
-                break;
-            }
+        }
+        if(rsl == -1){
+            throw new  ElementNotFoundException();
         }
             return rsl;
     }
