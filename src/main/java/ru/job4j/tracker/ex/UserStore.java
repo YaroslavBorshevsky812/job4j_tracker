@@ -26,9 +26,20 @@ public class UserStore {
         User[] users = {
                 new User("Petr Arsentev", true)
         };
-        User user = findUser(users, "Petr Arsentev");
-        if (validate(user)) {
-            System.out.println("This user has an access");
+        try {
+            User user = findUser(users, "Petr Arsentev");
+            if (validate(user)) {
+                System.out.println("This user has an access");
+            }
+        } catch (UserInvalidException eu){
+            eu.printStackTrace();
+        } catch (UserNotFoundException en){
+            en.printStackTrace();
+        } catch (Exception ex){
+            ex.printStackTrace();
+        } catch (Throwable t){
+            t.printStackTrace();
+        }
         }
     }
-}
+
