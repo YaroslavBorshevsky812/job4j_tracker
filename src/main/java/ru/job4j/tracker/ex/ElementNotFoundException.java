@@ -5,6 +5,9 @@ public class ElementNotFoundException extends Exception {
         int rsl = -1;
         for (String num : value) {
             rsl++;
+            if(num == null){
+                throw new  ElementNotFoundException();
+            }
             if (num.equals(key)) {
                 break;
             }
