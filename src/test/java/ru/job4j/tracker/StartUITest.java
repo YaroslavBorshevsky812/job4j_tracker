@@ -19,10 +19,10 @@ public class StartUITest {
         assertThat(out.toString(), is(
                 String.format(
                         "Menu.%n"
-                                + "0. === Exit ===%n"
-                                + "Wrong input, you can select: 0 .. 0%n"
-                                + "Menu.%n"
-                                + "0. === Exit ===%n"
+                                + "0. === Exit ===" + System.lineSeparator()
+                                + "Wrong input, you can select: 0 .. 0" + System.lineSeparator()
+                                + "Menu." + System.lineSeparator()
+                                + "0. === Exit ===" + System.lineSeparator()
                 )
         ));
     }
