@@ -8,6 +8,11 @@ public class TrackerSingleOne {
         return tracker;
     }
 
+
+    public static TrackerSingleOne getInstance() {
+        return new TrackerSingleOne();
+    }
+
     public Item add(Item model) {
         return model;
     }
