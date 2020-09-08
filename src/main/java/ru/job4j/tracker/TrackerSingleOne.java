@@ -2,7 +2,14 @@ package ru.job4j.tracker;
 
 public class TrackerSingleOne {
 
-    private TrackerSingleOne tracker = new TrackerSingleOne().getInstance().tracker;
+    private Tracker tracker = new Tracker();
+
+     public Tracker getInstance1(){
+        return tracker;
+    }
+
+
+    private TrackerSingleOne tracker1 = new TrackerSingleOne().getInstance().tracker1;
 
     private TrackerSingleOne() {
     }

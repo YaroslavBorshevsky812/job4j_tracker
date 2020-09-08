@@ -2,6 +2,12 @@ package ru.job4j.tracker;
 
 public class TrackerSingletonTwo {
 
+    private Tracker tracker = new Tracker();
+
+    public Tracker getInstance1(){
+        return tracker;
+    }
+
         private static TrackerSingletonTwo instance;
 
         private TrackerSingletonTwo() {
