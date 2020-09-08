@@ -8,16 +8,6 @@ public class TrackerSingleOne {
         return tracker;
     }
 
-
-    private TrackerSingleOne tracker1 = new TrackerSingleOne().getInstance().tracker1;
-
-    private TrackerSingleOne() {
-    }
-
-    public static TrackerSingleOne getInstance() {
-        return new TrackerSingleOne();
-    }
-
     public Item add(Item model) {
         return model;
     }
