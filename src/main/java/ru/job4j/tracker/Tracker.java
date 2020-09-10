@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Tracker {
-    private final ArrayList<Item> items = new ArrayList<Item>();
+    private final List<Item> items = new ArrayList<Item>();
     private int ids = 1;
     private int size = 0;
 
@@ -16,7 +16,7 @@ public class Tracker {
     }
 
     public ArrayList<Item> findAll(){
-        return items;
+        return (ArrayList<Item>) items;
     }
 
     public ArrayList<Item> findByName(String key){
@@ -59,7 +59,7 @@ public class Tracker {
         boolean done = false;
         int index = indexOf(id);
         if (index != -1) {
-            items.remove(items.get(index));
+            items.remove(index);
             done = true;
         }
         return done;
