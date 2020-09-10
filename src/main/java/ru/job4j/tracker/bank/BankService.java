@@ -1,6 +1,9 @@
 package ru.job4j.tracker.bank;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
@@ -10,12 +13,10 @@ public class BankService {
     }
 
     public void addAccount(String passport, Account account) {
-        for (Account count:users.get(findByPassport(passport))) {
+        for (Account count : users.get(findByPassport(passport))) {
             if(count.equals(account)){
-                System.out.println("Такой аккаунт уже есть");
-            }
-
-
+                System.out.println("Одинаковые");
+        }
 
         }
     }
