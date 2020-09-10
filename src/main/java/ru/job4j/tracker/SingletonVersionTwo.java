@@ -14,7 +14,6 @@ public class SingletonVersionTwo {
         }
         return instance;
     }
-
     public Tracker getTracker() {
         return tracker;
     }
