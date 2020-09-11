@@ -17,7 +17,7 @@ public class FindByNameAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        ArrayList<Item> item = tracker.findByName(input.askStr("=== Enter the name ==="));
+        List<Item> item = tracker.findByName(input.askStr("=== Enter the name ==="));
         if (item.size() > 0) {
             for (int i = 0; i < item.size(); i++) {
                 out.println(item.get(i));

@@ -18,7 +18,7 @@ public class ShowAction implements UserAction{
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        ArrayList<Item> items = tracker.findAll();
+        List<Item> items = tracker.findAll();
         for (int i = 0; i < items.size(); i++) {
             out.println(items.get(i));
         }
