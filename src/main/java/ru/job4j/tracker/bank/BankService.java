@@ -13,29 +13,36 @@ public class BankService {
     }
 
     public void addAccount(String passport, Account account) {
-        for (Account count : users.get(findByPassport(passport))) {
-            if(count.equals(account)){
-                System.out.println("Одинаковые");
-        }
-
+        User user = findByPassport(passport);
+        if (user != null) {
+            List<Account> list = users.get(user);
+            if (!(users.get(user).contains(account))) {
+                list.add(account);
+            }
         }
     }
 
+
     public User findByPassport(String passport) {
-        User some = new User(passport, "buf");
+        User some = null;
         for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)){
+            if (user.getPassport().equals(passport)) {
                 some = user;
+                break;
             }
         }
         return some;
     }
 
     public Account findByRequisite(String passport, String requisite) {
-        Account account = new Account(" ", 0);
-        for (Account buf : users.get(findByPassport(passport))) {
-            if(buf.getRequisite().equals(requisite)){
-                account = buf;
+        Account account = null;
+        User user = findByPassport(passport);
+        if (user != null) {
+            for (Account buf : users.get(user)) {
+                if (buf.getRequisite().equals(requisite)) {
+                    account = buf;
+                    break;
+                }
             }
         }
         return account;
@@ -43,7 +50,15 @@ public class BankService {
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String dеstRequisite, double amount) {
-        boolean rsl = false;
-        return rsl;
+        boolean rsl = true;
+        Account srcAccount = findByRequisite(srcPassport, srcRequisite);
+        User destUser = findByPassport(destPassport);
+        if (srcAccount.getBalance() < amount || srcAccount == null) {
+            rsl = false;
+        } else
+
+
+            return rsl;
+
     }
 }
