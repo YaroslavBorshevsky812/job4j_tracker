@@ -2,7 +2,7 @@ package ru.job4j.tracker.collection;
 
 import java.util.Objects;
 
-public class User  {
+public class User implements Comparable<User> {
     private String name;
     private int age;
 
@@ -19,13 +19,11 @@ public class User  {
         return name;
     }
 
-
+    @Override
     public int compareTo( User second) {
-        int rsl = 0;
-        CompareByName byName = new CompareByName();
-        CompareByAge byAge = new CompareByAge();
-        if(byName.compare(this, second) == 0){
-           rsl = byAge.compare(this, second);
+       int rsl = this.getName().compareTo(second.getName());
+        if (rsl == 0){
+           rsl = Integer.compare(this.getAge(), second.getAge());
         }
         return rsl;
     }
