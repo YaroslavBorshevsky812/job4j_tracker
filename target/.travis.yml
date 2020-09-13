@@ -20,5 +20,6 @@ notifications:
     on_failure: always # defa,ult: always
 env:
   global:
+    -
       - CODECOV_TOKEN="d6f47304-cf9f-421b-8716-21e92ab43ea3"
 
