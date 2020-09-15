@@ -9,9 +9,10 @@ public class RefMethod {
         List<String> names = Arrays.asList(
                 "Ivan",
                 "Petr Arsentev"
+
         );
-        Consumer<String> out = System.out::println;
-        names.forEach(out);
+        Consumer<String> out1 = RefMethod::cutOut;
+        names.forEach(out1);
     }
 
     public static void cutOut(String value) {
