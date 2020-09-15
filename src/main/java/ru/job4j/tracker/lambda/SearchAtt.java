@@ -25,4 +25,11 @@ public class SearchAtt {
         Predicate<Attachment> p = a -> a.getName().contains("buf");
         return filter(p, list);
     }
+
+    public static void main(String[] args) {
+        Attachment att = new Attachment("buf", 10);
+        List<Attachment> list = new ArrayList<>();
+
+        System.out.println(filterName(list));
+    }
 }
