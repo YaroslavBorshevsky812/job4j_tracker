@@ -24,6 +24,6 @@ public class SchoolTest {
             }
         };
         List<Student> list = new ArrayList<>();
-        list.stream().collect(list, predict);
+        list.stream().collect(list, predict.test(student));
     }
 }
