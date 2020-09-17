@@ -26,6 +26,21 @@ public class SchoolTest {
 
         assertThat(list, hasItem(student));
     }
+    @Test
+    public void classB(){
+        List<Student> list = new ArrayList<>();
+        List<Student> resultList = new ArrayList<>();
+        Student student = new Student("Surname", 77);
+        Student student1 = new Student("Surname", 69);
+
+        resultList.stream()
+                .filter(student2 -> student.getScore() >= 70)
+                .filter(student2 -> student.getScore() <= 100)
+                .collect(Collectors.toList());
+
+
+        assertThat(list, hasItem(student));
+    }
 
     @Override
     public boolean equals(Object o) {
