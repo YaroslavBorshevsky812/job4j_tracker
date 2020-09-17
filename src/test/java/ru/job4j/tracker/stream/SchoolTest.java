@@ -1,5 +1,6 @@
 package ru.job4j.tracker.stream;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -10,48 +11,53 @@ import java.util.stream.Collectors;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class SchoolTest {
+    private List<Student> students = new ArrayList<>();
 
+    @Before
+    public void setUp() {
+        students.add(new Student("Surname1", 10));
+        students.add(new Student("Surname2", 20));
+        students.add(new Student("Surname3", 30));
+        students.add(new Student("Surname4", 40));
+        students.add(new Student("Surname5", 50));
+        students.add(new Student("Surname6", 60));
+        students.add(new Student("Surname7", 70));
+        students.add(new Student("Surname8", 80));
+        students.add(new Student("Surname9", 90));
+    }
     @Test
-    public void classA(){
-        List<Student> list = new ArrayList<>();
-        List<Student> resultList = new ArrayList<>();
-        Student student = new Student("Surname", 77);
-        Student student1 = new Student("Surname", 69);
-        Predicate<Student> predict = student2 -> student.getScore() > 0 || student.getScore() <50;
-        resultList.stream().collect(list, predict);
-
-
-        assertThat(list, hasItem(student));
+    public void classA() {
+        Predicate<Student> pr = st -> st.getScore() >= 70 && st.getScore() <= 100;
+        List<Student> rsl = new School().collect(students, pr);
+        List<Student> expected = new ArrayList<>();
+        expected.add(new Student("Surname7", 70));
+        expected.add(new Student("Surname8", 80));
+        expected.add(new Student("Surname9", 90));
+        assertThat(rsl, is(expected));
     }
     @Test
     public void classB(){
-        List<Student> list = new ArrayList<>();
-        List<Student> resultList = new ArrayList<>();
-        Student student = new Student("Surname", 77);
-        Student student1 = new Student("Surname", 69);
-
-        resultList.stream()
-                .filter(student2 -> student.getScore() >= 70)
-                .filter(student2 -> student.getScore() <= 100)
-                .collect(Collectors.toList());
-
-
-        assertThat(list, hasItem(student));
+        Predicate<Student> pr = st -> st.getScore() >= 50 && st.getScore() <= 70;
+        List<Student> rsl = new School().collect(students, pr);
+        List<Student> expected = new ArrayList<>();
+        expected.add(new Student("Surname5", 50));
+        expected.add(new Student("Surname6", 60));
+        expected.add(new Student("Surname7", 70));
+        assertThat(rsl, is(expected));
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        return Objects.equals(((Student) o).getScore(), student.getScore());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash();
+    @Test
+    public void classC(){
+        Predicate<Student> pr = st -> st.getScore() > 0 && st.getScore() < 50;
+        List<Student> rsl = new School().collect(students, pr);
+        List<Student> expected = new ArrayList<>();
+        expected.add(new Student("Surname1", 10));
+        expected.add(new Student("Surname2", 20));
+        expected.add(new Student("Surname3", 30));
+        expected.add(new Student("Surname4", 40));
+        assertThat(rsl, is(expected));
     }
 }
