@@ -7,4 +7,6 @@ public class Address {
     private int home;
 
     private int apartment;
+
+
 }
