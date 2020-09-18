@@ -13,10 +13,14 @@ public class Profile {
 
     public static void main(String[] args) {
         Profile profile = new Profile();
+        Profile profile1 = new Profile();
         Address address = new Address();
+        Address address1 = new Address();
         profile.address = address;
+        profile1.address = address1;
         List<Profile> profileList = new ArrayList<>();
         profileList.add(profile);
+        profileList.add(profile1);
         System.out.println(Profile.collect(profileList));
     }
 }
