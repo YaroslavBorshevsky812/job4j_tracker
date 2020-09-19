@@ -14,6 +14,13 @@ public class Address {
         return city;
     }
 
+    public Address(String city, String street, int home, int apartment){
+        this.city = city;
+        this.street = street;
+        this.home = home;
+        this.apartment = apartment;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
