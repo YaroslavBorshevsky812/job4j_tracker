@@ -12,7 +12,7 @@ import java.util.ArrayList;
         public ArrayList<Person> find(String key) {
             ArrayList<Person> result = new ArrayList<>();
 
-            for (Person person : persons) {
+            for (var person : persons) {
                 if (key.contains(person.getAddress())
                         ||key.contains(person.getName())
                         ||key.contains(person.getSurname())
