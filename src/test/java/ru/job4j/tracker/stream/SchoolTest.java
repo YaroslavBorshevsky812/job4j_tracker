@@ -20,6 +20,8 @@ public class SchoolTest {
         students.add(new Student("Surname1", 10));
         students.add(new Student("Surname2", 20));
         students.add(new Student("Surname3", 30));
+        students.add(new Student("Surname3", 30));
+        students.add(new Student("Surname3", 30));
 
     }
     @Test
