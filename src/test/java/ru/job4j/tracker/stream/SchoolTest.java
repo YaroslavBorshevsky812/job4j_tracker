@@ -3,9 +3,7 @@ package ru.job4j.tracker.stream;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -22,14 +20,19 @@ public class SchoolTest {
         students.add(new Student("Surname1", 10));
         students.add(new Student("Surname2", 20));
         students.add(new Student("Surname3", 30));
-        students.add(new Student("Surname4", 40));
-        students.add(new Student("Surname5", 50));
-        students.add(new Student("Surname6", 60));
-        students.add(new Student("Surname7", 70));
-        students.add(new Student("Surname8", 80));
-        students.add(new Student("Surname9", 90));
+
     }
     @Test
+    public void whenStudentListThenMap(){
+        Map<String, Student> rsl = School.convert(students);
+        Map<String, Student> extended = new HashMap<>();
+        extended.put("Surname1", new Student("Surname1", 10));
+        extended.put("Surname2", new Student("Surname2", 20));
+        extended.put("Surname3", new Student("Surname3", 30));
+        assertThat(rsl, is(extended));
+    }
+}
+    /*@Test
     public void classA() {
         Predicate<Student> pr = st -> st.getScore() >= 70 && st.getScore() <= 100;
         List<Student> rsl = new School().collect(students, pr);
@@ -59,5 +62,5 @@ public class SchoolTest {
         expected.add(new Student("Surname3", 30));
         expected.add(new Student("Surname4", 40));
         assertThat(rsl, is(expected));
-    }
-}
+    }*/
+
