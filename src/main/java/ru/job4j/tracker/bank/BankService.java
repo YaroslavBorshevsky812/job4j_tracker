@@ -28,7 +28,6 @@ public class BankService {
                 .findFirst();
     }
 
-
     public Optional<Account> findByRequisite(String passport, String requisite) {
             return users.get(findByPassport(passport))
                     .stream().filter(account -> account.getRequisite().equals(requisite))
