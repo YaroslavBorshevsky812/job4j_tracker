@@ -30,13 +30,10 @@ public class BankService {
 
 
     public Optional<Account> findByRequisite(String passport, String requisite) {
-        return users.get(findByPassport(passport)).stream().filter(account -> account.getRequisite().equals(requisite))
-                .findFirst();
-    }
-
-
-
-
+            return users.get(findByPassport(passport))
+                    .stream().filter(account -> account.getRequisite().equals(requisite))
+                    .findFirst();
+        }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
