@@ -17,6 +17,7 @@ public class Article {
             if(!(originList.contains(lineWord))){
                 System.out.println(lineWord + " "+ "Doesn't exists");
                 rsl = false;
+                break;
             };
         }
         return rsl;
