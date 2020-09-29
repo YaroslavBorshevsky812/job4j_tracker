@@ -1,27 +1,31 @@
 package ru.job4j.tracker.collection;
 
+import com.sun.tools.javac.Main;
+
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class FreezeStr {
     public static boolean eq(String left, String right) {
-        if (left.length() != right.length()) {
-            return false;
+        HashMap<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < left.length(); i++) {
+            map.computeIfPresent(left.charAt(i), (key,value) -> value+1);
+            map.putIfAbsent(left.charAt(i), 1);
         }
-
-        int[] letters = new int [2000];
-
-        char[] s_array = left.toCharArray();
-        for (char c : s_array) {
-            letters[c]++;
-        }
-
         for (int i = 0; i < right.length(); i++) {
-            int c = (int) right.charAt(i);
-            if (--letters[c] < 0) {
-                return false;
-            }
+            map.computeIfPresent(right.charAt(i), (key, value) -> value - 1);
+            map.remove(right.charAt(i), 0);
         }
+        return map.size() == 0;
+    }
 
-        return true;
+    public static void main(String[] args) {
+        String s = "Hello";
+        String s1 = "Hlloe";
+        String f = "Hello";
+        String f1 = "Halle";
+        System.out.println(eq(s,s1));
+        System.out.println(eq(f,f1));
     }
 }
