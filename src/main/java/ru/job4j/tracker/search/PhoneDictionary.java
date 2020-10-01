@@ -1,8 +1,9 @@
 package ru.job4j.tracker.search;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
-    public class PhoneDictionary {
+public class PhoneDictionary {
         private ArrayList<Person> persons = new ArrayList<Person>();
 
         public void add(Person person) {
@@ -10,15 +11,15 @@ import java.util.ArrayList;
         }
 
         public ArrayList<Person> find(String key) {
+            Predicate<Person> combine = person -> key.contains(person.getAddress())
+                    || key.contains(person.getPhone())
+                    || key.contains(person.getName())
+                    || key.contains(person.getSurname());
             ArrayList<Person> result = new ArrayList<>();
-
-            for (var person : persons) {
-                if (key.contains(person.getAddress())
-                        ||key.contains(person.getName())
-                        ||key.contains(person.getSurname())
-                        ||key.contains(person.getPhone())){
+            for (Person person : persons) {
+                if (combine.test(person)) {
                     result.add(person);
-                };
+                }
             }
             return result;
         }
